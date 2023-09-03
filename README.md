@@ -4,8 +4,19 @@ Directed Perception
 PAN-TILT CONTROLLER: model PTU-D46E  
 PAN-TILT UNIT: model PTU-46-17.5  
 
-dmesg | grep tty  
+## execution
+git clone https://github.com/uptopia/pan_tilt_platform.git
+
+sudo pip3 install pyserial
+sudo dmesg | grep tty  
 sudo chmod 777 /dev/ttyUSB0  
+
+python3 ui2.py
+
+1. press reset
+2. type values + press ENTER
+3. press OK
+
 
 ref:  
 https://www.artisantg.com/PLC/72424-1/FLIR-Systems-Directed-Perception-PTU-D46-Computer-Controlled-Pan-Tilt-Unit   
