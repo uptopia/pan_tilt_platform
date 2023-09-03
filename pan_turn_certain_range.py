@@ -16,7 +16,7 @@ if __name__ == "__main__":
     degree_r = 50
     flag = True # -> l->r
     p_l, p_r = degree_l, degree_r
-    p_l, p_r = ui_test.degee2rev(p_l), ui_test.degee2rev(p_r)
+    p_l, p_r = ui_test.degree2rev(p_l), ui_test.degree2rev(p_r)
     p_l, p_r = ui_test.l_p(p_l), ui_test.l_p(p_r)
     while(1):
         if(flag):

@@ -31,11 +31,11 @@ class Ui_MainWindow(object):
         self.slider_pan.setOrientation(QtCore.Qt.Horizontal)
         self.slider_pan.setObjectName("slider_pan")
         self.gridLayout.addWidget(self.slider_pan, 1, 2, 1, 1)
-        self.tilt_degee = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.tilt_degee.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.tilt_degee.setAlignment(QtCore.Qt.AlignCenter)
-        self.tilt_degee.setObjectName("tilt_degee")
-        self.gridLayout.addWidget(self.tilt_degee, 2, 1, 1, 1)
+        self.tilt_degree = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.tilt_degree.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.tilt_degree.setAlignment(QtCore.Qt.AlignCenter)
+        self.tilt_degree.setObjectName("tilt_degree")
+        self.gridLayout.addWidget(self.tilt_degree, 2, 1, 1, 1)
         self.label2 = QtWidgets.QLabel(self.gridLayoutWidget)
         self.label2.setAlignment(QtCore.Qt.AlignCenter)
         self.label2.setObjectName("label2")
@@ -52,10 +52,10 @@ class Ui_MainWindow(object):
         self.pan.setAlignment(QtCore.Qt.AlignCenter)
         self.pan.setObjectName("pan")
         self.gridLayout.addWidget(self.pan, 1, 0, 1, 1)
-        self.pan_degee = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.pan_degee.setAlignment(QtCore.Qt.AlignCenter)
-        self.pan_degee.setObjectName("pan_degee")
-        self.gridLayout.addWidget(self.pan_degee, 1, 1, 1, 1)
+        self.pan_degree = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.pan_degree.setAlignment(QtCore.Qt.AlignCenter)
+        self.pan_degree.setObjectName("pan_degree")
+        self.gridLayout.addWidget(self.pan_degree, 1, 1, 1, 1)
         self.slider_tilt = QtWidgets.QSlider(self.gridLayoutWidget)
         self.slider_tilt.setMaximum(2000)
         self.slider_tilt.setProperty("value", 1000)
@@ -106,14 +106,14 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def rev2degee(self, rev):
+    def rev2degree(self, rev):
         rev = int(rev)
-        degee = rev*90/1750
-        return degee
+        degree = rev*90/1750
+        return degree
     
-    def degee2rev(self, degee):
-        degee = float(degee)
-        rev = round(degee*1750/90)
+    def degree2rev(self, degree):
+        degree = float(degree)
+        rev = round(degree*1750/90)
         return str(rev)
 
     def l_p(self,p):
@@ -147,8 +147,8 @@ class Ui_MainWindow(object):
         print("Current Position...")
         self.pp = self.cmd("pp")[-1]
         self.tp = self.cmd("tp")[-1]
-        self.pp = self.rev2degee(self.pp)
-        self.tp = self.rev2degee(self.tp)
+        self.pp = self.rev2degree(self.pp)
+        self.tp = self.rev2degree(self.tp)
         print("Done!")
 
         print("Get limits of ptu46...") # the limits of pp and tp
@@ -160,8 +160,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pan_degee.setText(_translate("MainWindow", "{:3.2f}".format(self.pp)))
-        self.tilt_degee.setText(_translate("MainWindow", "{:3.2f}".format(self.tp)))
+        self.pan_degree.setText(_translate("MainWindow", "{:3.2f}".format(self.pp)))
+        self.tilt_degree.setText(_translate("MainWindow", "{:3.2f}".format(self.tp)))
         self.label2.setText(_translate("MainWindow", "角度"))
         self.label1.setText(_translate("MainWindow", "方向"))
         self.tilt.setText(_translate("MainWindow", "Tilt"))
@@ -181,20 +181,20 @@ class Ui_MainWindow(object):
         self.slider_tilt.valueChanged.connect(self.slider_tilt_c)
 
     def ok(self):
-        # self.pan_degee.setText(self.line_pan.text())
-        # self.tilt_degee.setText(self.line_tilt.text())
+        # self.pan_degree.setText(self.line_pan.text())
+        # self.tilt_degree.setText(self.line_tilt.text())
 
         p = self.line_pan.text()
         t = self.line_tilt.text()
 
-        p = self.degee2rev(p)
-        t = self.degee2rev(t)
+        p = self.degree2rev(p)
+        t = self.degree2rev(t)
 
         p = self.l_p(p)
         t = self.l_t(t)
 
-        self.pan_degee.setText("{:3.2f}".format(self.rev2degee(p)))
-        self.tilt_degee.setText("{:3.2f}".format(self.rev2degee(t)))
+        self.pan_degree.setText("{:3.2f}".format(self.rev2degree(p)))
+        self.tilt_degree.setText("{:3.2f}".format(self.rev2degree(t)))
 
         self.cmd("pp{}".format(p))
         self.cmd("tp{}".format(t))
@@ -203,8 +203,8 @@ class Ui_MainWindow(object):
     def reset(self):
         # self.ser.write(b"r * \r\n")
         print("Reset...")
-        self.pan_degee.setText("{:3.2f}".format(0))
-        self.tilt_degee.setText("{:3.2f}".format(0))
+        self.pan_degree.setText("{:3.2f}".format(0))
+        self.tilt_degree.setText("{:3.2f}".format(0))
         self.line_pan.setText("{:3.2f}".format(0))
         self.line_tilt.setText("{:3.2f}".format(0))
         self.cmd("r")
