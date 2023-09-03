@@ -36,14 +36,15 @@ sudo chmod 777 /dev/ttyUSB0
 ### Method2: via terminal
 `echo {cmd} >> /dev/ttyUSB0`
 
-cmd =  
-    **r**      Perform Reset calibration  
-    **pp**     Query current absolute pan position  
-    **pp100**    Set desired absolute pan position  
-    **tp**       Query current absolute tilt position  
-    **tp100**    Set desired absolute tilt position  
-    **px** **pn**    Maximum/Minimum Pan position  
-    **tx** **tn**    Maximum/Minimum Tilt position  
+| **cmd**   | **description**                      |
+|:---------:|:------------------------------------:|
+| **r***   | Perform Reset calibration            |
+| **pp***  | Query current absolute pan position  |
+| **pp100** | Set desired absolute pan position    |
+| **tp**    | Query current absolute tilt position |
+| **tp100** | Set desired absolute tilt position   |
+| **px pn** | Maximum/Minimum Pan position         |
+| **tx tn** | Maximum/Minimum Tilt position        |
 
 ref:  
 https://github.com/antoinebou12/Pan-Tilt-Controller  
