@@ -13,9 +13,13 @@ sudo chmod 777 /dev/ttyUSB0
 
 python3 ui2.py
 
-1. press reset
-2. type values + press ENTER
-3. press OK
+## pan_tile_ui
+<div align=left>
+<img src="pan_tilt_ui.png" width="320" height="180"/>   
+
+1. press reset  
+2. type values + press ENTER  
+3. press OK  
 
 
 ref:  
